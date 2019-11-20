@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='description' content='A minimalistic calculator'>
+  <meta name='author' content='Nyandereian'>
+  <link rel='stylesheet' href='styles/reset.css'>
+  <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,700&display=swap">
+  <link rel='stylesheet' href='styles/style.css'>
+  <title>MiniCalc</title>
+</head>
+<body>
+  <main>
+    <div class='wrapper'>
+      <div class='left'>
+        <div class='input-line'>
+          <input class='input-area' autofocus type='text' autocomplete='off'>
+          <button class='backspace' type='button'></button>
+        </div>
+        <div class='output'>
+          <p class='result'>=37</p>
+          <p>4 x 9 / 2 = 18</p>
+          <p>3,600 x 365.25 = 1,314,900</p>
+          <p>3,600 x 365.25 = 1,314,900</p>
+        </div>
+        <div class='clear'>
+          <button class='clear-button' type='reset'>Clear All</button>
+        </div>
+      </div>
+      <div class='right'>
+        <div class='operator'>
+          <button class='primary-btn' type='button' value='/'>/</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='7'>7</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='8'>8</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='9'>9</button>
+        </div>
+        <div class='operator'>
+          <button class='primary-btn' type='button' value='X'>X</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='4'>4</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='5'>5</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='6'>6</button>
+        </div>
+        <div class='operator'>
+          <button class='primary-btn' type='button' value='-'>-</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='1'>1</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='2'>2</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='3'>3</button>
+        </div>
+        <div class='operator'>
+          <button class='primary-btn' type='button' value='+'>+</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='0'>0</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='button' value='.'>.</button>
+        </div>
+        <div class='digit'>
+          <button class='primary-btn' type='submit'>=</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src='scripts/script.js'>
+  </script>
+</body>

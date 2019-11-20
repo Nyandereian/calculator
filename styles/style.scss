@@ -1,0 +1,135 @@
+$dark: #171810;
+$grey: #9da3a8;
+$neon: #29f3e2;
+$classic: bold 47px/150% 'Montserrat', sans-serif;
+$light: 300 23px/150% 'Montserrat', sans-serif;
+
+@mixin highlight {
+  &::selection {
+    color: $dark;
+    background: $neon;
+  }
+}
+
+@mixin button-effect {
+  transition: all .07s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(1.0);
+  }
+}
+
+html {
+    background: $dark;
+}
+
+main {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 100px;
+}
+
+.left, .right {
+  padding: 50px;
+}
+
+.input-line {
+  border-bottom: 3px solid $neon;
+  position: relative;
+  width: 290px;
+}
+
+.input-area {
+  background-color: $dark;
+  border: 1px solid $dark;
+  color: white;
+  font: $classic;
+  width: 80%;
+  @include highlight;
+}
+
+.backspace {
+  background: $dark;
+  background-image: url('../media/backspace.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0;
+  height: 30px;
+  margin-top: -15px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 54px;
+  @include button-effect;
+}
+
+.output {
+  color: $grey;
+  font: $light;
+  line-height: 200%;
+  .result {
+    font-style: italic;
+  }
+  p {
+    margin-bottom: 21px;
+    @include highlight;
+  }
+}
+
+.clear-button {
+  background-color: $dark;
+  border: 0;
+  color: white;
+  font: $light;
+  margin-top: 15px;
+  padding: 0;
+  &:hover {
+    text-decoration: underline;
+  }
+  @include button-effect;
+}
+
+.right {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.primary-btn {
+  background: $dark;
+  border: 2px solid $dark;
+  font: $classic;
+  height: 80px;
+  text-align: center;
+  width: 60px;
+  @include button-effect;
+}
+
+.operator .primary-btn {
+  color: $neon;
+  &:hover {
+    border-color: white;
+  }
+}
+
+.digit .primary-btn {
+  color: white;
+  &:hover {
+    border-color: $neon;
+  }
+}

@@ -1,0 +1,112 @@
+html {
+  background: #171810; }
+
+main {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center; }
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 100px; }
+
+.left, .right {
+  padding: 50px; }
+
+.input-line {
+  border-bottom: 3px solid #29f3e2;
+  position: relative;
+  width: 290px; }
+
+.input-area {
+  background-color: #171810;
+  border: 1px solid #171810;
+  color: white;
+  font: bold 47px/150% "Montserrat", sans-serif;
+  width: 80%; }
+  .input-area::selection {
+    color: #171810;
+    background: #29f3e2; }
+
+.backspace {
+  background: #171810;
+  background-image: url("../media/backspace.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0;
+  height: 30px;
+  margin-top: -15px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 54px;
+  transition: all .07s ease; }
+  .backspace:hover {
+    transform: scale(1.1); }
+  .backspace:active {
+    transform: scale(1); }
+
+.output {
+  color: #9da3a8;
+  font: 300 23px/150% "Montserrat", sans-serif;
+  line-height: 200%; }
+  .output .result {
+    font-style: italic; }
+  .output p {
+    margin-bottom: 21px; }
+    .output p::selection {
+      color: #171810;
+      background: #29f3e2; }
+
+.clear-button {
+  background-color: #171810;
+  border: 0;
+  color: white;
+  font: 300 23px/150% "Montserrat", sans-serif;
+  margin-top: 15px;
+  padding: 0;
+  transition: all .07s ease; }
+  .clear-button:hover {
+    text-decoration: underline; }
+  .clear-button:hover {
+    transform: scale(1.1); }
+  .clear-button:active {
+    transform: scale(1); }
+
+.right {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.primary-btn {
+  background: #171810;
+  border: 2px solid #171810;
+  font: bold 47px/150% "Montserrat", sans-serif;
+  height: 80px;
+  text-align: center;
+  width: 60px;
+  transition: all .07s ease; }
+  .primary-btn:hover {
+    transform: scale(1.1); }
+  .primary-btn:active {
+    transform: scale(1); }
+
+.operator .primary-btn {
+  color: #29f3e2; }
+  .operator .primary-btn:hover {
+    border-color: white; }
+
+.digit .primary-btn {
+  color: white; }
+  .digit .primary-btn:hover {
+    border-color: #29f3e2; }
+
+/*# sourceMappingURL=style.css.map */
