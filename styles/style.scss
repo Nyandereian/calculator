@@ -39,10 +39,26 @@ main {
   flex-direction: row;
   justify-content: center;
   margin: 100px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    margin: 0;
+  }
 }
+
 
 .left, .right {
   padding: 50px;
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.left {
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+  }
 }
 
 .input-line {
@@ -90,6 +106,10 @@ main {
     margin-bottom: 21px;
     @include highlight;
   }
+  @media only screen and (max-width: 768px) {
+    font-size: 15px;
+    line-height: normal;
+  }
 }
 
 .clear-button {
@@ -103,6 +123,9 @@ main {
     text-decoration: underline;
   }
   @include button-effect;
+  @media only screen and (max-width: 768px) {
+    font-size: 22px;
+  }
 }
 
 .right {
@@ -121,6 +144,13 @@ main {
   text-align: center;
   width: 60px;
   @include button-effect;
+  @media only screen and (max-width: 768px) {
+    height: 40px;
+    width: 30px;
+    &:hover{
+      border: 0;
+    }
+  }
 }
 
 .operator .primary-btn {

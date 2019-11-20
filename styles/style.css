@@ -14,9 +14,22 @@ main {
   flex-direction: row;
   justify-content: center;
   margin: 100px; }
+  @media only screen and (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
+      margin: 0; } }
 
 .left, .right {
   padding: 50px; }
+  @media only screen and (max-width: 768px) {
+    .left, .right {
+      padding: 0; } }
+
+@media only screen and (max-width: 768px) {
+  .left {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px; } }
 
 .input-line {
   border-bottom: 3px solid #29f3e2;
@@ -66,6 +79,10 @@ main {
     .output p::selection {
       color: #171810;
       background: #29f3e2; }
+  @media only screen and (max-width: 768px) {
+    .output {
+      font-size: 15px;
+      line-height: normal; } }
 
 .clear-button {
   background-color: #171810;
@@ -81,6 +98,9 @@ main {
     transform: scale(1.1); }
   .clear-button:active {
     transform: scale(1); }
+  @media only screen and (max-width: 768px) {
+    .clear-button {
+      font-size: 22px; } }
 
 .right {
   display: grid;
@@ -101,6 +121,12 @@ main {
     transform: scale(1.1); }
   .primary-btn:active {
     transform: scale(1); }
+  @media only screen and (max-width: 768px) {
+    .primary-btn {
+      height: 40px;
+      width: 30px; }
+      .primary-btn:hover {
+        border: 0; } }
 
 .operator .primary-btn {
   color: #29f3e2; }
