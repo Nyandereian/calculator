@@ -1,12 +1,7 @@
-const add = (x, y) => x + y;
-const subtract = (x, y) => x - y;
-const multiply = (x, y) => x * y;
-const divide = (x, y) => x / y;
-
 const inputArea = document.querySelector('.input-area');
 const backspace = document.querySelector('.backspace');
 const output = document.querySelector('.output');
-const currentResult = document.querySelector('result');
+const currentResult = document.querySelector('.result');
 const clearButton = document.querySelector('.clear-button');
 const primaryButtons = document.querySelectorAll('.primary-btn');
 
@@ -30,7 +25,7 @@ window.addEventListener('keydown', e => {
   if(e.key == 'Backspace') {
     deleteLast();
   } else {
-    const div = document.querySelector(`[data-key*='${e.key}']`);
+    const div = document.querySelector(`[data-key~='${e.key}']`);
     if(!div) return;
     const btn = div.querySelector('button');
     addValue(btn.value);
@@ -53,9 +48,10 @@ clearButton.addEventListener('click', () => {
       p.textContent='=';
       p.style.visibility = 'hidden';
     }
+    tap.currentTime = 0;
     tap.play();
+    clearButton.blur();
   })
-
 });
 
 // functions
@@ -71,14 +67,24 @@ function deleteLast() {
       inputItem = input.pop();
     }
   } else {
-    // error audio
+    cling.currentTime = 0;
+    cling.play();
     return;
   }
   tap.play();
   displayInput();
+  updateResult();
 }
 
 function addValue(value) {
+  if(value == '=') {
+    if(inputItem.length > 1 || inputItem.length == 1 && !isNaN(inputItem)) {
+      addResult();
+      return;
+    }
+    return;
+  }
+  currentResult.style.visibility = 'visible';
   let prevValue = input[input.length - 1] || NaN;
   if(value == '-' && !inputItem) {
     inputItem += value;
@@ -92,22 +98,62 @@ function addValue(value) {
     inputItem = '';
     input.push(value);
   } else {
-    //error audio
+    cling.currentTime = 0;
+    cling.play();
     return;
   }
   click.play();
   displayInput();
   value='';
+
+  updateResult();
+}
+
+function addResult() {
+  result = calculate();
+  const p = document.createElement('p');
+  input.push(inputItem);
+  p.textContent = input.join(' ') + ' = ' + result;
+  output.insertBefore(p, currentResult.nextSibling);
+  if(output.childElementCount > 4) output.removeChild(output.lastElementChild);
+  input = [];
+  inputItem = '';
+  currentResult.style.visibility = 'hidden';
+  displayInput();
+}
+
+function updateResult() {
+  currentResult.textContent = '= ' + calculate();
 }
 
 function displayInput() {
   inputArea.value = input.join(' ') + ' ' + inputItem;
 }
 
-function calculate(operator, x, y) {
-  return operator(x, y);
+const add = (x, y) => +x + +y;
+const subtract = (x, y) => x - y;
+const multiply = (x, y) => x * y;
+const divide = (x, y) => x / y;
 
-  // let answer be automatically copied
-};
-
-// implement paste function
+function calculate() {
+  let copyInput = input.slice(0);
+  copyInput.push(inputItem);
+  let result = copyInput[0];
+  copyInput.forEach((entry, index) => {
+    if(entry == 'X' || entry == '/') {
+      let x = copyInput[index - 1];
+      let y = copyInput[index + 1];
+      result = (entry == 'X') ? multiply(x, y) : divide(x, y);
+      copyInput.splice(index - 1, 3, result);
+    }
+  });
+  copyInput.forEach((entry, index) => {
+    if(entry == '+' || entry == '-') {
+      let x = copyInput[index - 1];
+      let y = copyInput[index + 1];
+      result = (entry == '+') ? add(x, y) : subtract(x, y);
+      copyInput.splice(index - 1, 3, result);
+    }
+  });
+  return result;
+}

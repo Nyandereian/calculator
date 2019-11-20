@@ -59,7 +59,8 @@ main {
   font: 300 23px/150% "Montserrat", sans-serif;
   line-height: 200%; }
   .output .result {
-    font-style: italic; }
+    font-style: italic;
+    visibility: hidden; }
   .output p {
     margin-bottom: 21px; }
     .output p::selection {
