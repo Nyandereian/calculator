@@ -28,6 +28,8 @@ main {
   border: 1px solid #171810;
   color: white;
   font: bold 47px/150% "Montserrat", sans-serif;
+  font-size: 30px;
+  line-height: 70.5px;
   width: 80%; }
   .input-area::selection {
     color: #171810;

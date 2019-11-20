@@ -56,6 +56,8 @@ main {
   border: 1px solid $dark;
   color: white;
   font: $classic;
+  font-size: 30px;
+  line-height: 70.5px;
   width: 80%;
   @include highlight;
 }
