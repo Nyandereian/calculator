@@ -9,7 +9,8 @@ reset everything.
 ### Bugs
 - Not responsive
 - Input doesn't show when too large
-- Safari: audio doesn't rewind on keydown
+- Can't handle large inputs, output width grows with input size
+- Safari: audio doesn't rewind on keydown and has a delay
 - Firefox: typing automatically pops-up the search content bar
 - Firefox: backspace auto-directs user to previous page
 
