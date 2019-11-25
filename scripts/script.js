@@ -8,9 +8,9 @@ const primaryButtons = document.querySelectorAll('.primary-btn');
 const click = new Audio('media/click.mp3');
 const cling = new Audio('media/cling.mp3');
 const tap = new Audio('media/tap.mp3');
-click.volume = 0.02;
-cling.volume = 0.02;
-tap.volume = 0.01;
+click.volume = 0.06;
+cling.volume = 0.06;
+tap.volume = 0.03;
 
 // variables
 let input = [];
