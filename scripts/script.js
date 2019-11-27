@@ -139,21 +139,27 @@ function calculate() {
   let copyInput = input.slice(0);
   copyInput.push(inputItem);
   let result = copyInput[0];
-  copyInput.forEach((entry, index) => {
-    if(entry == 'X' || entry == '/') {
-      let x = copyInput[index - 1];
-      let y = copyInput[index + 1];
-      result = (entry == 'X') ? multiply(x, y) : divide(x, y);
-      copyInput.splice(index - 1, 3, result);
-    }
-  });
-  copyInput.forEach((entry, index) => {
-    if(entry == '+' || entry == '-') {
-      let x = copyInput[index - 1];
-      let y = copyInput[index + 1];
-      result = (entry == '+') ? add(x, y) : subtract(x, y);
-      copyInput.splice(index - 1, 3, result);
-    }
-  });
+  while(copyInput.includes("X") || copyInput.includes("/")) {
+    copyInput.forEach((entry, index) => {
+      if(entry == 'X' || entry == '/') {
+        let x = copyInput[index - 1];
+        let y = copyInput[index + 1];
+        result = (entry == 'X') ? multiply(x, y) : divide(x, y);
+        copyInput.splice(index - 1, 3, result);
+      }
+    });
+  }
+
+  while(copyInput.includes("+") || copyInput.includes("-")) {
+    copyInput.forEach((entry, index) => {
+      if(entry == '+' || entry == '-') {
+        let x = copyInput[index - 1];
+        let y = copyInput[index + 1];
+        result = (entry == '+') ? add(x, y) : subtract(x, y);
+        copyInput.splice(index - 1, 3, result);
+      }
+    });
+  }
+
   return result;
 }
